@@ -1,0 +1,30 @@
+{
+  "name": "narratus",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start --single-run",
+    "test-watch": "karma start --auth-watch",
+    "build": "webpack",
+    "build-watch": "webpack-dev-server --inline --hot",
+    "start": "node server.js",
+    "cover": "istanbul cover _mocha",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "heroku-postbuild": "webpack --progress",
+    "lint": "eslint ./**",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheLiterati/Narratus-Angular.git"
+  },
+  "keywords": [
+    "narratus"
+  ],
+  "author": "Allie Grampa, Caleb Wells, Michael Padget, Shelly Tang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheLiterati/Narratus-Angular/issues"
+  },
+  "homepage": "https://github.com/TheLiterati/Narratus-Angular#readme"
+}
