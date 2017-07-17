@@ -1,8 +1,13 @@
 // Karma configuration
 // Generated on Mon Jul 17 2017 16:37:34 GMT-0700 (PDT)
+'use strict';
+
+const webpack = require('./webpack.config.js');
+delete webpack.entry;
 
 module.exports = function(config) {
   config.set({
+    webpack,
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
     // frameworks to use
@@ -10,6 +15,10 @@ module.exports = function(config) {
     frameworks: ['mocha'],
     // list of files / patterns to load in the browser
     files: [
+      'node_modulus/babel-polyfill/dist/polyfill.js',
+      'node_modules/angular/angular.js',
+      'node_modules/angular-mocks/angular-mocks.js',
+      'app/entry.js',
       'test/**/*-test.js',
     ],
     // list of files to exclude
@@ -18,6 +27,14 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'app/entry.js': ['webpack'],
+      'test/**/*-test.js': ['webpack'],
+    },
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox'],
+      },
     },
     // test results reporter to use
     // possible values: 'dots', 'progress'
