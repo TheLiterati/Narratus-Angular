@@ -1,9 +1,11 @@
 'use strict';
 
+const dotenv = ('dotenv');
 const webpack = require('webpack');
 const HTMLPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
+const UglifyJsPligin = require('uglifyjs-webpack-plugin');
 
 dotenv.load();
 
@@ -21,6 +23,12 @@ let plugins = [
 
 if(production){
   plugins = plugins.concat([
+    new UglifyJsPligin({
+      mangle: true,
+      compress: {
+        warnings: false,
+      },
+    }),
     new CleanPlugin(),
   ]);
 }
