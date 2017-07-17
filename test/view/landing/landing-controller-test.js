@@ -22,7 +22,6 @@ describe('Testing the Landing', function(){
       this.landingCtrl.$onInit();
       done();
     });
-
     it('should have the title', done => {
       expect(this.landingCtrl.title).to.equal('Narratus');
       done();
