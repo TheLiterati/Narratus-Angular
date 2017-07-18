@@ -13,9 +13,30 @@ module.exports = [
       {
         name: 'landing',
         url: '/join',
-        template: require('../view/dashboard/landing.html'),
+        template: require('../view/landing/landing.html'),
         controller: 'LandingController',
         controllerAs: 'landingCtrl',
+      },
+      {
+        name: 'dashboard',
+        url: '', // NOTE: determine route
+        template: require('../view/dashboard/dashboard.html'),
+        controller: 'DashboardController',
+        controllerAs: 'dashboardCtrl',
+      },
+      {
+        name: 'feed',
+        url: '', // NOTE: determine route
+        template: require('../view/feed/feed.html'),
+        controller: 'FeedController',
+        controllerAs: 'feedCtrl',
+      },
+      {
+        name: 'story',
+        url: '', // NOTE: determine route
+        template: require('../view/story/story.html'),
+        controller: 'storyController',
+        controllerAs: 'storyCtrl',
       },
     ];
     routes.forEach(route => $stateProvider.state(route));
