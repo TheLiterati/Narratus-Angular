@@ -4,13 +4,16 @@
 
 module.exports = [
   '$log',
+  '$location',
   // 'authService',
-  function($log){
+  function($log, $location){
     this.$onInit = () => {
       $log.debug('#signup controller');
 
       this.title = 'Narratus';
 
+      let url = $location.url();
+      this.showSignup = url = '/join#signup' || url === '/join';
     };
   },
 ];

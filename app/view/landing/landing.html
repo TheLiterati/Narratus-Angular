@@ -1,3 +1,10 @@
 <section class="signup">
   <h2>{{ signupCtrl.title }}</h2>
+  <div class="join-container" ng-if="landingCtrl.showSignup">
+  <div class="join-inner">
+    <signup-controller></signup-controller>
+    <p class="login-btn">already a member?</p>
+    <a href="/#!/login" ng-click="landingCtrl.showSignup=false" class="login-btn">Login</a>
+  </div>
+</div>
 </section>
