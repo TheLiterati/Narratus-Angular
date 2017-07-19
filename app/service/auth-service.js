@@ -47,7 +47,7 @@ module.exports = [
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-        }.
+        },
       };
 
       return $http.post(url, user, config)
