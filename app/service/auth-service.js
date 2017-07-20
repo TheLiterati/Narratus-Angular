@@ -61,10 +61,10 @@ module.exports = [
         });
     };
 
-    service.login = function(user) {
-      $log.debug('authService.login()');
+    service.signin = function(user) {
+      $log.debug('authService.signin()');
 
-      let url = `${__API_URL__}/api/login`;
+      let url = `${__API_URL__}/api/signin`;
       let base64 = $window.btoa(`${user.username}:${user.password}`);
       let config = {
         headers: {

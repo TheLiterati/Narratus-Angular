@@ -14,18 +14,14 @@ module.exports = {
       this.$onInit = () => {
         $log.debug('#signupCtrl');
 
-        authService.getToken()
-        .then(() => $location.url('/home'));
-
         this.title = '';
 
         this.signup = function(user){
           $log.debug('#signupCtrl.signup()');
 
           authService.signup(user)
-          .then(() => $location.url('/home'));
+            .then(() => $location.url('/home'));
         };
-        
       };
     },
   ],
