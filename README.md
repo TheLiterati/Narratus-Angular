@@ -5,7 +5,6 @@ Narratus is a collaborative writing application that allows a writer to author a
   * Allie Grampa
   * Caleb Wells
   * Michael Padget
-  * Shelly Tang
 
 ## Sites
 
