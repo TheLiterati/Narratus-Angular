@@ -19,7 +19,7 @@ module.exports = [
       },
       {
         name: 'dashboard',
-        url: '/join',
+        url: '/dashboard',
         template: require('../view/dashboard/dashboard.html'),
         controller: 'DashboardController',
         controllerAs: 'dashboardCtrl',
