@@ -1,5 +1,6 @@
 # ignore env variables
 .env
+package-lock.json
 
 #ignore build directories
 build/

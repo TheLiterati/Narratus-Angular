@@ -16,7 +16,6 @@ module.exports = {
         // authService.getToken()
         // .then(() => $location.url('/feed'));
 
-
         this.title = '';
 
         this.signup = function(user){
@@ -25,7 +24,6 @@ module.exports = {
           authService.signup(user)
           .then(() => $location.url('/feed'));
         };
-
       };
     },
   ],
