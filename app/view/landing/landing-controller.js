@@ -5,7 +5,6 @@
 module.exports = [
   '$log',
   '$location',
-  // 'authService',
   function($log, $location){
     this.$onInit = () => {
       $log.debug('#signup controller');
