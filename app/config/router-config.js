@@ -26,7 +26,7 @@ module.exports = [
       },
       {
         name: 'feed',
-        url: '', // NOTE: determine route
+        url: '/feed', // NOTE: determine route
         template: require('../view/feed/feed.html'),
         controller: 'FeedController',
         controllerAs: 'feedCtrl',

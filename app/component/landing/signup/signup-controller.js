@@ -13,6 +13,8 @@ module.exports = {
     function($log, $location, $window, authService){
       this.$onInit = () => {
         $log.debug('#signupCtrl');
+        // authService.getToken()
+        // .then(() => $location.url('/feed'));
 
         this.title = '';
 
@@ -20,7 +22,7 @@ module.exports = {
           $log.debug('#signupCtrl.signup()');
 
           authService.signup(user)
-            .then(() => $location.url('/home'));
+          .then(() => $location.url('/feed'));
         };
       };
     },
