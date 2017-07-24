@@ -21,7 +21,7 @@ module.exports = {
         this.signup = function(user){
           $log.debug('#signupCtrl.signup()');
 
-          authService.signup(user)
+          return authService.signup(user)
             .then(() => $location.url('/feed'));
         };
       };
