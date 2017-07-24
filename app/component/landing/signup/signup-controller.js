@@ -13,19 +13,17 @@ module.exports = {
     function($log, $location, $window, authService){
       this.$onInit = () => {
         $log.debug('#signupCtrl');
+        // authService.getToken()
+        // .then(() => $location.url('/feed'));
 
-        authService.getToken()
-        .then(() => $location.url('/home'));
-
-        this.title = '';
+        this.title = 'Welcome to Narratus';
 
         this.signup = function(user){
           $log.debug('#signupCtrl.signup()');
 
-          authService.signup(user)
-          .then(() => $location.url('/home'));
+          return authService.signup(user)
+            .then(() => $location.url('/feed'));
         };
-        
       };
     },
   ],

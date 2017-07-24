@@ -7,7 +7,7 @@ module.exports = [
     $urlServiceProvider.rules.when('', '/join#signup');
     $urlServiceProvider.rules.when('/', '/join#signup');
     $urlServiceProvider.rules.when('/signup', '/join#signup');
-    $urlServiceProvider.rules.when('/login', '/join#login');
+    $urlServiceProvider.rules.when('/signin', '/join#signin');
 
     let routes = [
       {
@@ -19,23 +19,23 @@ module.exports = [
       },
       {
         name: 'dashboard',
-        url: '', // NOTE: determine route
+        url: '/dashboard',
         template: require('../view/dashboard/dashboard.html'),
         controller: 'DashboardController',
         controllerAs: 'dashboardCtrl',
       },
       {
         name: 'feed',
-        url: '', // NOTE: determine route
+        url: '/feed', // NOTE: determine route
         template: require('../view/feed/feed.html'),
         controller: 'FeedController',
         controllerAs: 'feedCtrl',
       },
       {
         name: 'story',
-        url: '', // NOTE: determine route
+        url: '/story', // NOTE: determine route
         template: require('../view/story/story.html'),
-        controller: 'storyController',
+        controller: 'StoryController',
         controllerAs: 'storyCtrl',
       },
     ];

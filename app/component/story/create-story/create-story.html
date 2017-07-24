@@ -1,0 +1,40 @@
+<section>
+  <h2>Create a New Story</h2>
+
+  <form ng-submit="createStoryCtrl.createStory()">
+    <div>
+      <label for="title">Title</label>
+      <div>
+        <input type="text"
+          name="title"
+          ng-model="createStoryCtrl.story.title"
+          placeholder="Title"
+          required>
+      </div>
+    </div>
+
+    <div>
+      <label for="description">Description</label>
+      <div>
+        <input type="text"
+          name="description"
+          ng-model="createStoryCtrl.story.description"
+          placeholder="Description"
+          required>
+      </div>
+    </div>
+
+    <div>
+      <label for="startSnippet">Start Snippet</label>
+      <div>
+        <input type="text"
+          name="startSnippet"
+          ng-model="createStoryCtrl.story.startSnippet"
+          placeholder="Start Snippet"
+          required>
+      </div>
+    </div>
+
+    <button type="submit">Create A New Story</button>
+  </form>
+</section>
