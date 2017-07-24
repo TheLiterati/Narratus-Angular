@@ -33,9 +33,9 @@ module.exports = [
       },
       {
         name: 'story',
-        url: '', // NOTE: determine route
+        url: '/story', // NOTE: determine route
         template: require('../view/story/story.html'),
-        controller: 'storyController',
+        controller: 'StoryController',
         controllerAs: 'storyCtrl',
       },
     ];
