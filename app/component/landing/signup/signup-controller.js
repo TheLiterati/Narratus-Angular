@@ -16,13 +16,13 @@ module.exports = {
         // authService.getToken()
         // .then(() => $location.url('/feed'));
 
-        this.title = '';
+        this.title = 'Welcome to Narratus';
 
         this.signup = function(user){
           $log.debug('#signupCtrl.signup()');
 
           authService.signup(user)
-          .then(() => $location.url('/feed'));
+            .then(() => $location.url('/feed'));
         };
       };
     },

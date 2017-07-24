@@ -14,6 +14,8 @@ module.exports = {
       this.$onInit = () => {
         $log.debug('signinCtrl');
 
+        this.title = 'Welcome to Narratus';
+
         if(!$window.localStorage.token) {
           authService.getToken()
             .then(

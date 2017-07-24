@@ -27,6 +27,4 @@ describe('Testing the Landing', function(){
       done();
     });
   });
-
-
 });
