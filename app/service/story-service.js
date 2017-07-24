@@ -6,6 +6,7 @@ module.exports = [
   '$log',
   '$http',
   '$window',
+  'authService',
   function($q, $log, $http, $window, authService){
     $log.debug('storyService');
 
@@ -14,17 +15,19 @@ module.exports = [
     service.library = [];
     // service.currentStory
 
-    service.createStory = story => {
+    this.createStory = story => {
       $log.debug('service.createStory');
 
       return authService.getToken()
       .then(token => {
-        let headers = {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
         };
-        return $http.post(url, story, headers);
+        return $http.post(url, story, config);
       })
       .then(res => {
         $log.log('Successfully published new story');

@@ -16,7 +16,7 @@ module.exports = {
 
         this.story = {};
 
-        this.createStory = () => {
+        this.createStory = function(){
           return storyService.createStory(this.story)
             .then(() => {
               let res = this.story;
