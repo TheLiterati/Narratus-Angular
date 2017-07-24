@@ -1,7 +1,9 @@
 'use strict';
 
+const expect = require('chai').expect;
+
 describe('Testing the Signin controller', function(){
-  beforeEach(() => {
+  beforeEach(done => {
     angular.mock.module('narratus');
     angular.mock.inject(($rootScope, $componentController, $window, $httpBackend, authService) => {
       this.$rootScope = $rootScope;
@@ -13,14 +15,16 @@ describe('Testing the Signin controller', function(){
 
     this.signinCtrl.$onInit();
     this.$window.localStorage.setItem('token', 'user token');
+    done();
   });
 
-  afterEach(() => {
+  afterEach(done => {
     this.$window.localStorage.removeItem('token');
+    done();
   });
 
   describe('testing signinCtrl.signin()', () => {
-    it('should GET sign in, and return user token', () => {
+    it('should GET sign in, and return user token', done => {
       let expectUser = {
         username: 'testname',
         email: 'test@test.com',
@@ -45,10 +49,12 @@ describe('Testing the Signin controller', function(){
         this.$httpBackend.flush();
         this.$rootScope.$apply();
       });
+      done();
     });
-    it('should have a page title of "welcome to narratus"', () => {
-      expect(this.signinCtrl.title).toEqual('Welcome to Narratus');
-      expect(this.signinCtrl.title).toEqual(jasmine.any(String));
+    it('should have a page title of "welcome to narratus"', done => {
+      expect(this.signinCtrl.title).to.equal('Welcome to Narratus');
+      expect(this.signinCtrl.title).to.be.a('string');
+      done();
     });
   });
 
