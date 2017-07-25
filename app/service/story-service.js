@@ -90,8 +90,8 @@ module.exports = [
               Authorization: `Bearer ${token}`,
             },
           };
-
-          return $http.post(url, snippet, config);
+          let snippetURL = `${__API_URL__}/snippet/${story._id}`;
+          return $http.post(snippetURL, snippet, config);
         })
         .then(res => {
           $log.log('Successfully contributed a  new snippet');
