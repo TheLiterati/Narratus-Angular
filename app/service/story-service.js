@@ -13,7 +13,6 @@ module.exports = [
     let service = {};
     let url = `${__API_URL__}/api/story`;
     service.library = [];
-    // service.currentStory
 
     this.createStory = story => {
       $log.debug('service.createStory');
@@ -41,12 +40,7 @@ module.exports = [
 
     service.fetchStories = () => {
       $log.debug('service.fetchStories');
-
-      let headers = {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      };
-      return $http.get(url, headers)
+      return $http.get(url)
       .then(res => {
         $log.log('Stories retrieved');
         service.library = res.data;
@@ -77,6 +71,6 @@ module.exports = [
         $q.reject(err);
       });
     };
-
+    return service;
   },
 ];
