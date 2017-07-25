@@ -19,24 +19,24 @@ module.exports = [
       $log.debug('service.createStory');
 
       return authService.getToken()
-      .then(token => {
-        let config = {
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        };
-        return $http.post(url, story, config);
-      })
-      .then(res => {
-        $log.log('Successfully published new story');
-        return res.data;
-      })
-      .catch(err => {
-        $log.error(err.message);
-        return $q.reject(err);
-      });
+        .then(token => {
+          let config = {
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          return $http.post(url, story, config);
+        })
+        .then(res => {
+          $log.log('Successfully published new story');
+          return res.data;
+        })
+        .catch(err => {
+          $log.error(err.message);
+          return $q.reject(err);
+        });
     };
 
     service.fetchStories = () => {
@@ -47,15 +47,15 @@ module.exports = [
         'Content-Type': 'application/json',
       };
       return $http.get(url, headers)
-      .then(res => {
-        $log.log('Stories retrieved');
-        service.library = res.data;
-        return res.data;
-      })
-      .catch(err => {
-        $log.error(err.message);
-        $q.reject(err);
-      });
+        .then(res => {
+          $log.log('Stories retrieved');
+          service.library = res.data;
+          return res.data;
+        })
+        .catch(err => {
+          $log.error(err.message);
+          $q.reject(err);
+        });
     };
 
     service.fetchStory = story => {
@@ -67,16 +67,40 @@ module.exports = [
       };
 
       return $http.get(`${url}/${story._id}`, headers)
-      .then(res => {
-        $log.log('Story retrieved');
-        service.currentStory = res.data;
-        return res.data;
-      })
-      .catch(err => {
-        $log.error(err.message);
-        $q.reject(err);
-      });
+        .then(res => {
+          $log.log('Story retrieved');
+          service.currentStory = res.data;
+          return res.data;
+        })
+        .catch(err => {
+          $log.error(err.message);
+          $q.reject(err);
+        });
     };
 
+    service.createSnippet = snippet => {
+      $log.debug('service.createSnippet');
+
+      return authService.getToken()
+        .then(token => {
+          let config = {
+            headers: {
+              Accept: 'appllication/json',
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          };
+
+          return $http.post(url, snippet, config);
+        })
+        .then(res => {
+          $log.log('Successfully contributed a  new snippet');
+          return res.data;
+        })
+        .cath(err => {
+          $log.error(err.message);
+          return $q.reject(err);
+        });
+    };
   },
 ];
