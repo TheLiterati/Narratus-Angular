@@ -97,10 +97,11 @@ module.exports = [
           $log.log('Successfully contributed a  new snippet');
           return res.data;
         })
-        .cath(err => {
+        .catch(err => {
           $log.error(err.message);
           return $q.reject(err);
         });
     };
+    return service;
   },
 ];

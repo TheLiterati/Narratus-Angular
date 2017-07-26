@@ -17,7 +17,7 @@ module.exports = {
         this.snippet = {};
 
         this.createSnippet = function() {
-          return storyService.createStory(this.snippet)
+          return storyService.createSnippet(this.snippet)
             .then(() => {
               let res = this.snippet;
               this.snippet.snippetContent = null;
@@ -26,7 +26,7 @@ module.exports = {
               return res;
             })
             .then(() => $location.url('/feed'))
-            .catch(err => $log.error(err));
+            .catch(err => $log.error(err.message));
         };
       };
     },
