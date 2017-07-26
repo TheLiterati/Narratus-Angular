@@ -72,7 +72,7 @@ module.exports = [
         });
     };
 
-    service.createSnippet = snippet => {
+    service.createSnippet = (storyId, snippet) => {
       $log.debug('service.createSnippet');
 
       return authService.getToken()
@@ -84,7 +84,7 @@ module.exports = [
               Authorization: `Bearer ${token}`,
             },
           };
-          let snippetURL = `${__API_URL__}/snippet/${story._id}`;
+          let snippetURL = `${__API_URL__}/api/snippet/${storyId}`;
           return $http.post(snippetURL, snippet, config);
         })
         .then(res => {
