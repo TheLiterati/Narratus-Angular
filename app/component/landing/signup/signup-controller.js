@@ -13,8 +13,6 @@ module.exports = {
     function($log, $location, $window, authService){
       this.$onInit = () => {
         $log.debug('#signupCtrl');
-        // authService.getToken()
-        // .then(() => $location.url('/feed'));
 
         this.title = 'Welcome to Narratus';
 
