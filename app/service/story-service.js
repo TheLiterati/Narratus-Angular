@@ -13,7 +13,6 @@ module.exports = [
     let service = {};
     let url = `${__API_URL__}/api/story`;
     service.library = [];
-    // service.currentStory
 
     this.createStory = story => {
       $log.debug('service.createStory');
@@ -41,6 +40,7 @@ module.exports = [
 
     service.fetchStories = () => {
       $log.debug('service.fetchStories');
+<<<<<<< HEAD
 
       let headers = {
         Accept: 'application/json',
@@ -56,6 +56,18 @@ module.exports = [
           $log.error(err.message);
           $q.reject(err);
         });
+=======
+      return $http.get(url)
+      .then(res => {
+        $log.log('Stories retrieved');
+        service.library = res.data;
+        return res.data;
+      })
+      .catch(err => {
+        $log.error(err.message);
+        $q.reject(err);
+      });
+>>>>>>> f6eea9d83108b000c78c5e8af8306f0f352a6dab
     };
 
     service.fetchStory = story => {
@@ -77,6 +89,7 @@ module.exports = [
           $q.reject(err);
         });
     };
+<<<<<<< HEAD
 
     service.createSnippet = snippet => {
       $log.debug('service.createSnippet');
@@ -102,6 +115,8 @@ module.exports = [
           return $q.reject(err);
         });
     };
+=======
+>>>>>>> f6eea9d83108b000c78c5e8af8306f0f352a6dab
     return service;
   },
 ];
