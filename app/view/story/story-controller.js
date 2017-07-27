@@ -11,14 +11,17 @@ module.exports = [
 
       let url = $location.url();
       this.read = url === '/story#view' || url === '/story';
-      this.edit = url === '/story#edit';
-      this.create = url === '/story#create';
+      this.edit = url === '/story#edit' || url === '/story';
+      this.create = url === '/story#create' || url === '/story';
 
       this.readStory = () => {
         console.log('in read story'); // WTF not hitting this?!
         this.read = true;
         this.edit = false;
         this.create = false;
+        console.log('this.read', this.read);
+        console.log('this.edit', this.edit);
+        console.log('this.create', this.create);
       };
 
       this.createStory = () => {
@@ -33,9 +36,6 @@ module.exports = [
         this.create = false;
       };
 
-      console.log('this.read', this.read);
-      console.log('this.edit', this.edit);
-      console.log('this.create', this.create);
     };
   },
 ];
