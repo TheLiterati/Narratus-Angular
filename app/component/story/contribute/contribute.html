@@ -1,0 +1,18 @@
+<section>
+  <h2>What Happens Next?</h2>
+
+  <form ng-submit="contributeCtrl.createSnippet()">
+    <div>
+      <div>
+        <input type="text"
+          name="snippetContent"
+          ng-model="contributeCtrl.snippet.snippetContent"
+          placeholder="And then..."
+          required>
+      </div>
+    </div>
+
+  <button type="submit">Submit Your Snippet!</button>
+
+  </form>
+</section>
