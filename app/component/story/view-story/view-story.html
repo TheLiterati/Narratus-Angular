@@ -1,0 +1,10 @@
+<section>
+  <p>{{viewStoryCtrl.currentStory.title}}</p>
+  <p>{{viewStoryCtrl.currentStory.startSnippet}}</p>
+  <section class="story-snippets"
+    ng-repeat="snippet in viewStoryCtrl.currentStory.snippets"
+    snippet="snippet">{{viewStoryCtrl.currentStory.snippet}}
+  </section>
+
+  <contribute-controller></contribute-controller>
+</section>

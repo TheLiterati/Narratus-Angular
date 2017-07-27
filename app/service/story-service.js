@@ -12,8 +12,9 @@ module.exports = [
     let service = {};
     let url = `${__API_URL__}/api/story`;
     service.library = [];
+    service.currentStory = {};
 
-    this.createStory = story => {
+    service.createStory = story => {
       $log.debug('service.createStory');
 
       return authService.getToken()
@@ -51,7 +52,7 @@ module.exports = [
       });
     };
 
-    service.fetchStory = story => {
+    service.fetchStory = storyId => {
       $log.debug('service.fetchStory');
 
       let headers = {
@@ -59,7 +60,7 @@ module.exports = [
         'Content-Type': 'application',
       };
 
-      return $http.get(`${url}/${story._id}`, headers)
+      return $http.get(`${url}/${storyId}`, headers)
         .then(res => {
           $log.log('Story retrieved');
           service.currentStory = res.data;
@@ -71,7 +72,7 @@ module.exports = [
         });
     };
 
-    service.createSnippet = snippet => {
+    service.createSnippet = (storyId, snippet) => {
       $log.debug('service.createSnippet');
 
       return authService.getToken()
@@ -83,7 +84,7 @@ module.exports = [
               Authorization: `Bearer ${token}`,
             },
           };
-          let snippetURL = `${__API_URL__}/snippet/${story._id}`;
+          let snippetURL = `${__API_URL__}/api/snippet/${storyId}`;
           return $http.post(snippetURL, snippet, config);
         })
         .then(res => {
