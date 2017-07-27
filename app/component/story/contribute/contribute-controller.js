@@ -27,7 +27,7 @@ module.exports = {
               $rootScope.$emit('New Snippet Created');
               return res;
             })
-            .then(() => $location.url('/feed'))
+            .then(() => $location.url('/story#view'))
             .catch(err => $log.error(err.message));
         };
       };
