@@ -1,4 +1,13 @@
 <section class="main-story-section">
-  <view-story-controller></view-story-controller>
-  <create-story-controller></create-story-controller>
+  <div ng-if="storyCtrl.read">
+    <view-story-controller></view-story-controller>
+  </div>
+
+  <div ng-if="storyCtrl.create">
+    <create-story-controller></create-story-controller>
+  </div>
+
+  <!-- <div ng-if="storyCtrl.edit">
+    <edit-story-controller></edit-story-controller>
+  </div> -->
 </section>
