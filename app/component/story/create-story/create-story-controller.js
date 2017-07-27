@@ -34,4 +34,7 @@ module.exports = {
       };
     },
   ],
+  bindings: {
+    theStory: '<',
+  },
 };
