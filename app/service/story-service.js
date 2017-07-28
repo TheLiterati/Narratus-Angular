@@ -150,6 +150,31 @@ module.exports = [
       });
     };
 
+    service.editStory = storyId => {
+      $log.debug('loading the pending snippets and the story');
+
+      return authService.getToken()
+        .then(token => {
+          let config = {
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          let snippetApprovalUrl = `${__API_URL__}/api/snippetapproval/${storyId}`;
+          return $http.get(snippetApprovalUrl, config);
+        })
+        .then(res => {
+          service.currentStory = res.data;
+          return res.data;
+        })
+        .catch(err => {
+          $log.error(err.message);
+          $q.reject(err);
+        });
+    };
+
 
     return service;
   },
