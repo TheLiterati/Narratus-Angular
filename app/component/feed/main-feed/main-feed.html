@@ -1,0 +1,13 @@
+<section>
+  <section class="story-preview">
+    <h2 ng-repeat="story in mainFeedCtrl.library"
+      story="story">
+      <a href="/#!/story#view"
+        ng-click="storyCtrl.readStory(); mainFeedCtrl.fetchStory(story._id)">{{story.title}}</a>
+      <p>{{story.startSnippet}}</p>
+      <p>{{story._id}}</p>
+      <a href="/#!/story#view"
+        ng-click="mainFeedCtrl.fetchStory(story._id)">Read the story.. &rarr;</a>
+    </h2>
+  </section>
+</section>
