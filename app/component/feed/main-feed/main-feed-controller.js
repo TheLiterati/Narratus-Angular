@@ -19,24 +19,24 @@ module.exports = {
         this.currentStory = {};
         this.loadFeed = () => {
           return storyService.fetchStories()
-            .then(stories => {
-              this.library = stories;
-              console.log('these is stories', stories);
-              console.log('dis is library', this.library);
-              return this.library;
-            });
+          .then(stories => {
+            this.library = stories;
+            console.log('these is stories', stories);
+            console.log('dis is library', this.library);
+            return this.library;
+          });
         };
 
         this.fetchStory = storyId => {
           return storyService.fetchStory(storyId)
-            .then(() => {
-              $window.localStorage.removeItem('currentStory');
-              $window.localStorage.setItem('currentStory', JSON.stringify(storyService.currentStory));
-              console.log('story saved to local storage', storyService.currentStory);
-            })
-            .then(
-              () => $location.url('/story#view')
-            );
+          .then(() => {
+            $window.localStorage.removeItem('currentStory');
+            $window.localStorage.setItem('currentStory', JSON.stringify(storyService.currentStory));
+            console.log('story saved to local storage', storyService.currentStory);
+          })
+          .then(
+            () => $location.url('/story#view')
+          );
         };
 
         $rootScope.$on('locationChangeSuccess', this.loadFeed);
