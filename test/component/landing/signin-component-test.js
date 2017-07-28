@@ -1,7 +1,6 @@
 'use strict';
 
 const expect = require('chai').expect;
-const mock = require('../../mock-info.js');
 
 describe('Testing the Signin controller', function(){
   beforeEach(done => {

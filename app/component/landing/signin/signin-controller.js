@@ -28,7 +28,7 @@ module.exports = {
           $log.debug('signinCtrl.signin()');
 
           return authService.signin(this.user)
-            .then(() => $location.url('/feed'));
+            .then(() => $location.url('/dashboard'));
         };
       };
     },
