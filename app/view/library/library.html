@@ -1,0 +1,20 @@
+<section class="library">
+  <div class="library-main">
+    <main-library-controller></main-library-controller>
+  </div>
+
+  <div class="story-view"
+    ng-if="libraryCtrl.view">
+    <view-story-controller></view-story-controller>
+  </div>
+
+  <div class="story-view"
+    ng-if="libraryCtrl.create">
+    <create-story-controller></create-story-controller>
+  </div>
+
+  <!-- <div class="story-view"
+    ng-if="libraryCtrl.edit">
+    <edit-story-controller></edit-story-controller>
+  </div> -->
+</section>
