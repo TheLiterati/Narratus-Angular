@@ -44,7 +44,17 @@ module.exports = {
               $location.url('/');
             });
         };
+
+        // this.createStory = () => {
+        //   storyCtrl.read = false;
+        //   storyCtrl.edit = false;
+        //   storyCtrl.create = true;
+        //   console.log('in navbar createstory');
+        // };
       };
     },
   ],
+  bindings: {
+    theStory: '<',
+  },
 };
