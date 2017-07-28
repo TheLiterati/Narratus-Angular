@@ -9,7 +9,33 @@ module.exports = [
 
       this.title = 'Welcome to Narratus';
 
-      // let url = $location.url();
+      let url = $location.url();
+      this.read = url === '/story#view' || url === '/story';
+      this.edit = url === '/story#edit';
+      this.create = url === '/story#create';
+
+      this.readStory = () => {
+        console.log('in read story'); // WTF not hitting this?!
+        this.read = true;
+        this.edit = false;
+        this.create = false;
+      };
+
+      this.createStory = () => {
+        this.read = false;
+        this.edit = false;
+        this.create = true;
+      };
+
+      this.editStory = () => {
+        this.read = false;
+        this.edit = true;
+        this.create = false;
+      };
+
+      console.log('this.read', this.read);
+      console.log('this.edit', this.edit);
+      console.log('this.create', this.create);
     };
   },
 ];

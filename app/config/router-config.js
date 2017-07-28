@@ -26,19 +26,19 @@ module.exports = [
       },
       {
         name: 'feed',
-        url: '/feed', // NOTE: determine route
+        url: '/feed',
         template: require('../view/feed/feed.html'),
         controller: 'FeedController',
         controllerAs: 'feedCtrl',
       },
       {
         name: 'story',
-        url: '/story', // NOTE: determine route
+        url: '/story',
         template: require('../view/story/story.html'),
         controller: 'StoryController',
         controllerAs: 'storyCtrl',
       },
     ];
-    routes.forEach(route => $stateProvider.state(route));
+    routes.forEach($stateProvider.state);
   },
 ];
