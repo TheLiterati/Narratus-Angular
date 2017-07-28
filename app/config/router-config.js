@@ -25,11 +25,11 @@ module.exports = [
         controllerAs: 'dashboardCtrl',
       },
       {
-        name: 'feed',
-        url: '/feed',
-        template: require('../view/feed/feed.html'),
-        controller: 'FeedController',
-        controllerAs: 'feedCtrl',
+        name: 'library',
+        url: '/library',
+        template: require('../view/library/library.html'),
+        controller: 'LibraryController',
+        controllerAs: 'libraryCtrl',
       },
       {
         name: 'story',

@@ -54,7 +54,4 @@ module.exports = {
       };
     },
   ],
-  bindings: {
-    theStory: '<',
-  },
 };

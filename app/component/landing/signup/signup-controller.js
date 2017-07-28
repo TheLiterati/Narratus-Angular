@@ -20,7 +20,7 @@ module.exports = {
           $log.debug('#signupCtrl.signup()');
 
           return authService.signup(user)
-            .then(() => $location.url('/feed'));
+            .then(() => $location.url('/library'));
         };
       };
     },

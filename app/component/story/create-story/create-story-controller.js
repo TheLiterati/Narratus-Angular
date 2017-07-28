@@ -28,7 +28,7 @@ module.exports = {
               $rootScope.$emit('new story created');
               return res;
             })
-            .then(() => $location.url('/feed'))
+            .then(() => $location.url('/library'))
             .catch(err => $log.error(err));
         };
       };
