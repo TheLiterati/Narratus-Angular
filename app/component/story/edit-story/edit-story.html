@@ -1,0 +1,19 @@
+<section class="edit-story">
+  <div class="story-snippets edit-story-container"
+    ng-if"!editStoryCtrl.approved">
+    <div>
+      <!-- Where the story populates -->
+      <h2>STORHEE</h2>
+    </div>
+
+    <div>
+      <!-- where the snippets to be approved appear!! -->
+    </div>
+  </div>
+
+  <div class="story-snippets"
+    ng-if="editStoryCtrl.approved">
+    <a href="/#!/story#view">Return to story</a>
+    <a href="/#!/dashboard">Back to your shelf</a>
+  </div>
+</section>

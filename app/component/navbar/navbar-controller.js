@@ -7,10 +7,12 @@ module.exports = {
   controllerAs: 'navbarCtrl',
   controller: [
     '$log',
+    '$window',
     '$location',
     '$rootScope',
     'authService',
-    function($log, $location, $rootScope, authService) {
+    'storyService',
+    function($log, $window, $location, $rootScope, authService, storyService) {
       this.$onInit = () => {
         $log.debug('NavbarController');
 
@@ -43,6 +45,19 @@ module.exports = {
             .then(() => {
               $location.url('/');
             });
+        };
+
+        this.loadDashboard = () => {
+          return storyService.loadDashboard()
+          .then(() => {
+            $window.localStorage.removeItem('ownedStories');
+            $window.localStorage.removeItem('followedStories');
+            $window.localStorage.setItem('ownedStories', JSON.stringify(storyService.ownedStories));
+            $window.localStorage.setItem('followedStories', JSON.stringify(storyService.followedStories));
+          })
+          .then(
+            () => $location.url('/dashboard')
+          );
         };
 
         // this.createStory = () => {

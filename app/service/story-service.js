@@ -13,6 +13,8 @@ module.exports = [
     let url = `${__API_URL__}/api/story`;
     service.library = [];
     service.currentStory = {};
+    service.ownedStories = [];
+    service.followedStories = [];
 
     service.createStory = story => {
       $log.debug('service.createStory');
@@ -79,7 +81,7 @@ module.exports = [
         .then(token => {
           let config = {
             headers: {
-              Accept: 'appllication/json',
+              Accept: 'application/json',
               'Content-Type': 'application/json',
               Authorization: `Bearer ${token}`,
             },
@@ -96,6 +98,59 @@ module.exports = [
           return $q.reject(err);
         });
     };
+
+    service.approveSnippet = (storyId, snippet) => {
+      $log.debug('service.approveSnippet');
+
+      return authService.getToken()
+      .then(token => {
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        let approveURL = `${__API_URL__}/api/snippet/approve/${storyId}`;
+        return $http.post(approveURL, snippet, config);
+      })
+      .then(res => {
+        $log.log('Successfully approved snippet');
+        return res.data;
+      })
+      .catch(err => {
+        $log.error(err.message);
+        return $q.reject(err);
+      });
+    };
+
+    service.loadDashboard = () => {
+      $log.debug('loading dashboard...');
+
+      return authService.getToken()
+      .then(token => {
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        let dashboardUrl = `${__API_URL__}/api/dashboard`;
+        return $http.get(dashboardUrl, config);
+      })
+      .then(res => {
+        service.ownedStories = res.data.ownedStories;
+        service.followedStories = res.data.followedStories;
+        return res.data;
+      })
+      .catch(err => {
+        $log.error(err.message);
+        return $q.reject(err);
+      });
+    };
+
+
     return service;
   },
 ];
