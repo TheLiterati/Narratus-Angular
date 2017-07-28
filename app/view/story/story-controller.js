@@ -15,7 +15,6 @@ module.exports = [
       this.create = url === '/story#create';
 
       this.readStory = () => {
-        console.log('in read story'); // WTF not hitting this?!
         this.read = true;
         this.edit = false;
         this.create = false;
