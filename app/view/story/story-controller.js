@@ -10,12 +10,11 @@ module.exports = [
       this.title = 'Welcome to Narratus';
 
       let url = $location.url();
-      this.read = url === '/story#view' || url === '/story';
+      this.read = url === '/story#view';
       this.edit = url === '/story#edit';
       this.create = url === '/story#create';
 
       this.readStory = () => {
-        console.log('in read story'); // WTF not hitting this?!
         this.read = true;
         this.edit = false;
         this.create = false;

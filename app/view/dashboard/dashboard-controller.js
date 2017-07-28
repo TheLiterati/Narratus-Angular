@@ -4,7 +4,7 @@
 
 module.exports = [
   '$log',
-  // 'feedService',
+  // 'libraryService',
   function($log) {
     this.$onInit = () => {
       $log.debug('Dashboard Controller');
