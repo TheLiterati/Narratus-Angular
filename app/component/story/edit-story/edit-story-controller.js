@@ -14,16 +14,17 @@ module.exports = {
     function($log, $window, $location, $rootScope, storyService){
       $log.debug('#editStoryCtrl');
 
-      // this.currentStory = JSON.parse($window.localStorage.currentStory);
       this.approved = false;
 
       this.approveSnippet = () => {
         return storyService.approveSnippet(this.currentStory)
         .then(() => this.approved = true)
+        .then()
         .catch(err => {
           $log.error(err.message);
         });
       };
+      
 
     },
   ],
