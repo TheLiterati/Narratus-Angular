@@ -15,6 +15,7 @@ module.exports = {
       $log.debug('#editStoryCtrl');
 
       this.approved = false;
+      this.currentStory = JSON.parse($window.localStorage.currentStory);
 
       this.approveSnippet = () => {
         return storyService.approveSnippet(this.currentStory)
@@ -24,7 +25,7 @@ module.exports = {
           $log.error(err.message);
         });
       };
-      
+
 
     },
   ],

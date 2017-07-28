@@ -1,15 +1,16 @@
 <section class="edit-story">
   <div class="story-snippets edit-story-container"
     ng-if="!editStoryCtrl.approved">
-    <h2>STORHEE</h2>
-    <div ng-repeat="snippets in editStoryCtrl.currentStory"
-      snippets="snippets">
+    <h2>{{editStoryCtrl.currentStory.title}}</h2>
+    {{editStoryCtrl.currentStory.startSnippet}}
+    <div ng-repeat="snippet in editStoryCtrl.currentStory"
+      snippet="snippet">
       {{snippets}}
     </div>
 
-    <div ng-repeat="pendingSnippets in editStoryCtrl.currentStory"
-      pendingSnippets="pendingSnippets">
-      {{pendingSnippets}}
+    <div ng-repeat="pendingSnippet in editStoryCtrl.currentStory.pendingSnippets"
+      pendingSnippet="pendingSnippet">
+      {{pendingSnippet.snippetContent}}
       <!-- where the snippets to be approved appear!! -->
     </div>
   </div>
