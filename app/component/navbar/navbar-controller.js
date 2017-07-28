@@ -50,6 +50,10 @@ module.exports = {
         this.loadDashboard = () => {
           return storyService.loadDashboard()
           .then(() => {
+            $window.localStorage.removeItem('ownedStories');
+            $window.localStorage.removeItem('followedStories');
+            $window.localStorage.setItem('ownedStories', JSON.stringify(storyService.ownedStories));
+            $window.localStorage.setItem('followedStories', JSON.stringify(storyService.followedStories));
           })
           .then(
             () => $location.url('/dashboard')
