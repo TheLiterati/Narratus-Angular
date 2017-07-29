@@ -166,9 +166,8 @@ module.exports = [
           return $http.get(snippetApprovalUrl, config);
         })
         .then(res => {
-          service.currentStory.pendingSnippets = res.data.pendingSnippets;
+          service.currentStory = res.data;
           console.log('current story being saved', service.currentStory);
-          console.log('res.data.pendingSnippets', res.data.pendingSnippets);
           return res.data;
         })
         .catch(err => {

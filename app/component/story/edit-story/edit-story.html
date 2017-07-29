@@ -7,7 +7,7 @@
       <div class="snippet-container" ng-repeat="snippet in editStoryCtrl.currentStory.snippets"
         snippet="snippet">
         Snippets will populate here
-        {{snippet.snippets}}
+        {{snippet.snippetContent}}
       </div>
     </div>
 
@@ -15,7 +15,7 @@
       pendingSnippet="pendingSnippet">
       {{pendingSnippet.snippetContent}}
       <button type="button" name="button"
-      ng-click="editStoryCtrl.setCurrentSnippet(pendingSnippet)">approve!</button>
+      ng-click="editStoryCtrl.setChosenSnippet(pendingSnippet)">approve!</button>
     </div>
     <button ng-click="editStoryCtrl.approveSnippet()">submit revisions</button>
   </div>

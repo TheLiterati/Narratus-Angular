@@ -15,11 +15,11 @@ module.exports = {
       $log.debug('#editStoryCtrl');
 
       this.approved = false;
-      this.currentStory = storyService.currentStory;
+      this.currentStory = JSON.parse($window.localStorage.currentStory);
 
-      this.currentSnippet = {};
+      this.chosenSnippet = {};
 
-      this.setCurrentSnippet = snippet => {
+      this.setChosenSnippet = snippet => {
         console.log(snippet);
         this.currentSnippet = snippet;
         $window.localStorage.removeItem('currentSnippet');
