@@ -1,18 +1,23 @@
 <section class="edit-story">
-  <div class="story-snippets edit-story-container"
+  <div class="story-snippets"
     ng-if="!editStoryCtrl.approved">
     <h2>{{editStoryCtrl.currentStory.title}}</h2>
-    {{editStoryCtrl.currentStory.startSnippet}}
-    <div ng-repeat="snippet in editStoryCtrl.currentStory"
-      snippet="snippet">
-      {{snippets}}
+    <div class="edit-story-container">
+      {{editStoryCtrl.currentStory.startSnippet}}
+      <div class="snippet-container" ng-repeat="snippet in editStoryCtrl.currentStory.snippets"
+        snippet="snippet">
+        Snippets will populate here
+        {{snippet.snippets}}
+      </div>
     </div>
 
-    <div ng-repeat="pendingSnippet in editStoryCtrl.currentStory.pendingSnippets"
+    <div class="pending-snippet-container" ng-repeat="pendingSnippet in editStoryCtrl.currentStory.pendingSnippets"
       pendingSnippet="pendingSnippet">
       {{pendingSnippet.snippetContent}}
-      <!-- where the snippets to be approved appear!! -->
+      <button type="button" name="button"
+      ng-click="editStoryCtrl.setCurrentSnippet(pendingSnippet)">approve!</button>
     </div>
+    <button ng-click="editStoryCtrl.approveSnippet()">submit revisions</button>
   </div>
 
   <div class="story-snippets"

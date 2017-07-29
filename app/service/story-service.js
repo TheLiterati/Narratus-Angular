@@ -167,6 +167,8 @@ module.exports = [
         })
         .then(res => {
           service.currentStory.pendingSnippets = res.data.pendingSnippets;
+          console.log('current story being saved', service.currentStory);
+          console.log('res.data.pendingSnippets', res.data.pendingSnippets);
           return res.data;
         })
         .catch(err => {
