@@ -16,19 +16,20 @@ module.exports = {
 
       this.approved = false;
       this.currentStory = JSON.parse($window.localStorage.currentStory);
-
       this.chosenSnippet = {};
 
       this.setChosenSnippet = snippet => {
-        this.currentSnippet = snippet;
-        console.log('current snippet', this.currentSnippet);
-        $window.localStorage.removeItem('currentSnippet');
-        $window.localStorage.setItem('currentSnippet', this.currentSnippet);
+        this.chosenSnippet = snippet;
+        console.log('chosen snippet', this.chosenSnippet);
+        $window.localStorage.removeItem('chosenSnippet');
+        $window.localStorage.setItem('chosenSnippet', this.chosenSnippet);
       };
 
       this.approveSnippet = () => {
-        console.log(this.currentStory);
-        return storyService.approveSnippet(this.currentStory._id, this.currentSnippet)
+        console.log('this is the currentStory', this.currentStory);
+        console.log('this is the currentStory._id', this.currentStory._id);
+        console.log('this is the chosenSnippet', this.chosenSnippet);
+        return storyService.approveSnippet(this.currentStory._id, this.chosenSnippet._id)
         .then(() => this.approved = true)
         .catch(err => {
           $log.error(err.message);
