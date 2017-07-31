@@ -1,4 +1,32 @@
 <section>
   <a href="/#!/story#create">Draft a New Story</a>
-  <h2>{{ dashboardCtrl.title }}</h2>
+  <div>
+    <h2>{{ dashboardCtrl.title }}</h2>
+
+    <div class="owned-stories"
+      ng-if="dashboardCtrl.owned"
+      ng-repeat="owned in dashboardCtrl.ownedStories"
+      owned="owned">
+
+      <a href="" ng-click="dashboardCtrl.editStory(owned._id)">next draft&rarr;</a>
+      {{owned.title}}
+      {{owned.startSnippet}}
+      <a href="" ng-click="dashboardCtrl.fetchStory(owned._id)">read on...&rarr;</a>
+    </div>
+
+      <div class="followed-stories"
+      ng-if="dashboardCtrl.followed"
+      ng-repeat="followed in dashboardCtrl.followedStories"
+      followed="followed">
+      {{followed.title}}
+      {{followed.startSnippet}}
+      <a href="" ng-click="dashboardCtrl.fetchStory(followed._id)">read on...&rarr;</a>
+
+    </div>
+  </div>
+
+  <!-- <div ng-if="dashboardCtrl.snippetApproval">
+    <edit-story-controller></edit-story-controller>
+  </div> -->
+
 </section>
