@@ -152,7 +152,6 @@ module.exports = [
 
     service.editStory = storyId => {
       $log.debug('loading the pending snippets and the story');
-
       return authService.getToken()
         .then(token => {
           let config = {
@@ -167,7 +166,7 @@ module.exports = [
         })
         .then(res => {
           service.currentStory = res.data;
-          console.log('current story being saved', service.currentStory);
+          console.log('current story being saved', res.data);
           return res.data;
         })
         .catch(err => {
