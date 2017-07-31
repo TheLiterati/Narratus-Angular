@@ -55,7 +55,7 @@ module.exports = [
         .then(() => {
           $window.localStorage.removeItem('currentStory');
           $window.localStorage.setItem('currentStory', JSON.stringify(storyService.currentStory));
-          console.log('moving to the story edit page');
+          console.log('moving to the story edit page', storyService.currentStory);
         })
         .then(
           () => $location.url('/story#edit')

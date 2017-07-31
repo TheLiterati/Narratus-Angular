@@ -167,6 +167,7 @@ module.exports = [
         })
         .then(res => {
           service.currentStory = res.data;
+          console.log('current story being saved', service.currentStory);
           return res.data;
         })
         .catch(err => {
