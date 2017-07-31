@@ -99,7 +99,7 @@ module.exports = [
         });
     };
 
-    service.approveSnippet = (storyId, snippet) => {
+    service.approveSnippet = (storyId, snippetId) => {
       $log.debug('service.approveSnippet');
 
       return authService.getToken()
@@ -111,8 +111,8 @@ module.exports = [
             Authorization: `Bearer ${token}`,
           },
         };
-        let approveURL = `${__API_URL__}/api/snippet/approve/${storyId}`;
-        return $http.post(approveURL, snippet, config);
+        let approveURL = `${__API_URL__}/api/story/${storyId}/snippet/${snippetId}`;
+        return $http.put(approveURL, {}, config);
       })
       .then(res => {
         $log.log('Successfully approved snippet');

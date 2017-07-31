@@ -17,7 +17,7 @@
       <button type="button" name="button"
       ng-click="editStoryCtrl.setChosenSnippet(pendingSnippet)">approve!</button>
     </div>
-    <button ng-click="editStoryCtrl.approveSnippet()">submit revisions</button>
+    <button ng-click="editStoryCtrl.approveSnippet(editStoryCtrl.currentStory._id, editStoryCtrl.chosenSnippet)">submit revisions</button>
   </div>
 
   <div class="story-snippets"
