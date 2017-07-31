@@ -20,8 +20,8 @@ module.exports = {
       this.chosenSnippet = {};
 
       this.setChosenSnippet = snippet => {
-        console.log(snippet);
         this.currentSnippet = snippet;
+        console.log('current snippet', this.currentSnippet);
         $window.localStorage.removeItem('currentSnippet');
         $window.localStorage.setItem('currentSnippet', this.currentSnippet);
       };
@@ -30,7 +30,6 @@ module.exports = {
         console.log(this.currentStory);
         return storyService.approveSnippet(this.currentStory._id, this.currentSnippet)
         .then(() => this.approved = true)
-        .then()
         .catch(err => {
           $log.error(err.message);
         });

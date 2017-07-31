@@ -51,6 +51,7 @@ module.exports = [
       };
 
       this.editStory = storyId => {
+        console.log('storyId', storyId);
         return storyService.editStory(storyId)
         .then(() => {
           $window.localStorage.removeItem('currentStory');
