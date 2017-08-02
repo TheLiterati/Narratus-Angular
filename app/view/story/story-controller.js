@@ -18,6 +18,9 @@ module.exports = [
         this.read = true;
         this.edit = false;
         this.create = false;
+        console.log('this.read', this.read);
+        console.log('this.edit', this.edit);
+        console.log('this.create', this.create);
       };
 
       this.createStory = () => {
@@ -32,9 +35,6 @@ module.exports = [
         this.create = false;
       };
 
-      console.log('this.read', this.read);
-      console.log('this.edit', this.edit);
-      console.log('this.create', this.create);
     };
   },
 ];
