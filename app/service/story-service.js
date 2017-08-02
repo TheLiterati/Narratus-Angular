@@ -175,6 +175,30 @@ module.exports = [
         });
     };
 
+    service.follow = storyId => {
+      $log.debug('Adding to followed in service');
+      return authService.getToken()
+        .then(token => {
+          let config = {
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          let followUrl = `${__API_URL__}/api/follow/story/${storyId}`;
+          return $http.put(followUrl, {}, config);
+        })
+        .then(res => {
+          service.currentStory = res.data;
+          return res.data;
+        })
+        .catch(err => {
+          $log.error(err.message);
+          $q.reject(err);
+        });
+    };
+
 
     return service;
   },
