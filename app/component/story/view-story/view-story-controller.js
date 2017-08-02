@@ -14,6 +14,10 @@ module.exports = {
         $log.debug('#viewStoryCtrl');
         this.contribution = {};
         this.currentStory = JSON.parse($window.localStorage.getItem('currentStory'));
+
+        this.follow = () => {
+          return storyService.follow(this.currentStory._id);
+        }
       };
     },
   ],
