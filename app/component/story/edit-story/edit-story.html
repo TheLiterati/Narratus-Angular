@@ -4,10 +4,11 @@
     <h2>{{editStoryCtrl.currentStory.title}}</h2>
     <div class="edit-story-container">
       {{editStoryCtrl.currentStory.startSnippet}}
+      <hr>
       <div class="snippet-container" ng-repeat="snippet in editStoryCtrl.currentStory.snippets"
         snippet="snippet">
-        Snippets will populate here
         {{snippet.snippetContent}}
+        <hr>
       </div>
     </div>
 
